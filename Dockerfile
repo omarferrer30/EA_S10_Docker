@@ -1,5 +1,5 @@
 # Stage 1 - Install dependencies and build the app
-FROM debian:bookworm AS build-env
+FROM debian:latest AS build-env
 
 # Install flutter dependencies
 RUN apt-get update 
@@ -27,7 +27,7 @@ COPY . /app/
 WORKDIR /app/
 RUN /usr/local/flutter/bin/flutter build web
 
-EXPOSE 70
+EXPOSE 80
 
 # Stage 2 - Create the run-time image
 FROM nginx:latest
